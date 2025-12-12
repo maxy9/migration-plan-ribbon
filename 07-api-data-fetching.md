@@ -453,26 +453,9 @@ npm run dev
 # - Caching works (no re-fetch on navigation back)
 ```
 
-### 12. Commit API Migration
+### 12. API & Data Fetching Complete
 
-```bash
-git add .
-git commit -m "feat: implement React Query data fetching
-
-- Create API client with axios
-- Integrate MSAL authentication with API requests
-- Create API service functions for comms domain
-- Implement query hooks for data fetching
-- Add mutation hooks for data updates
-- Create loading and error components
-- Update components to use React Query
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>"
-
-git push
-```
+All API integration and data fetching is set up. Continue to Phase 8 for Docker and deployment configuration.
 
 ## Verification Checklist
 

@@ -22,6 +22,12 @@ This migration transforms React micro-frontend modules (built with Vite, designe
 - Uses Next.js App Router
 - Communicates via postMessage
 
+## Important: Git Workflow
+
+**Git initialization and commits are handled at the END of the migration (Phase 10), not after each phase.**
+
+This allows you to focus on the migration work without interruption. Once everything is complete and tested, you'll initialize git, create a single comprehensive commit, and push to GitHub.
+
 ## Migration Phases
 
 The migration is broken down into 10 phases that should be completed in order:

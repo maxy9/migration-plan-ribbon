@@ -35,21 +35,17 @@ cd app-haven-experience-admin-{name}
 - What shared packages does it use?
 - What business-critical logic exists?
 
-### 2. Create New Repository
+### 2. Create Project Directory
 
-**Option A: Create via GitHub CLI**
+Create a new directory for the ribbon app:
+
 ```bash
-gh repo create HavenEngineering/app-haven-ribbon-{name} --private --clone
+# Create directory in your Git workspace
+mkdir app-haven-ribbon-{name}
 cd app-haven-ribbon-{name}
 ```
 
-**Option B: Create via GitHub Web UI**
-- Navigate to https://github.com/HavenEngineering
-- Click "New repository"
-- Name: `app-haven-ribbon-{name}`
-- Visibility: Private
-- Do NOT initialize with README (we'll create it)
-- Clone the empty repository
+**Note:** Git repository creation will be handled in Phase 10 after the migration is complete.
 
 ### 3. Initialize NextJS Project
 
@@ -185,36 +181,20 @@ mkdir -p src/utils
 mkdir -p public
 ```
 
-### 9. Initial Commit
+### 9. Save Your Progress
 
-Commit the initial project setup:
-
-```bash
-git add .
-git commit -m "chore: initialize Next.js project
-
-- Set up Next.js 15 with TypeScript and Tailwind
-- Configure npm registry for @havenengineering packages
-- Set up basic directory structure
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>"
-
-git push -u origin main
-```
+At this point, the basic project structure is set up. Git initialization and commits will be handled in Phase 10 after the entire migration is complete.
 
 ## Verification Checklist
 
 Before moving to Phase 2, verify:
 
-- [ ] Repository created and cloned
+- [ ] Project directory created
 - [ ] Next.js project initialized with TypeScript
 - [ ] `package.json` has correct name and is marked private
 - [ ] `.nvmrc` is set to version 24
 - [ ] `.npmrc` and `.npmrc_ci` configured for GitHub packages
 - [ ] Basic directory structure created
-- [ ] Initial commit pushed to GitHub
 - [ ] Project runs locally with `npm run dev`
 
 ## Test the Setup

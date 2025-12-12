@@ -12,7 +12,114 @@ This final phase ensures the migration is complete, tested, documented, and read
 
 ## Step-by-Step Instructions
 
-### 1. Comprehensive Functional Testing
+### 1. Initialize Git Repository
+
+Now that the migration is complete, initialize git and create the repository:
+
+```bash
+# Initialize git
+git init
+
+# Create .gitignore if not already created by create-next-app
+cat > .gitignore << 'EOF'
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+EOF
+
+# Stage all files
+git add .
+
+# Create initial commit
+git commit -m "chore: complete migration from admin to ribbon
+
+Migration phases completed:
+- Phase 1: Project setup and initialization
+- Phase 2: Configuration files (next.config, tsconfig, tailwind)
+- Phase 3: Authentication setup (MSAL integration)
+- Phase 4: Provider architecture (React Query, Park, Auth)
+- Phase 5: Routing migration (React Router → App Router)
+- Phase 6: Component migration (all business logic preserved)
+- Phase 7: API & data fetching (axios + React Query)
+- Phase 8: Docker configuration (multi-stage build)
+- Phase 9: CI/CD setup (GitHub Actions workflow)
+- Phase 10: Testing and finalization
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+```
+
+### 2. Create GitHub Repository
+
+**Option A: Create via GitHub CLI**
+```bash
+# For HavenEngineering organization (if you have permissions)
+gh repo create HavenEngineering/app-haven-ribbon-{name} --private --source=. --remote=origin --push
+
+# Or for your personal account
+gh repo create app-haven-ribbon-{name} --private --source=. --remote=origin --push
+```
+
+**Option B: Create via GitHub Web UI**
+1. Go to GitHub and create a new private repository
+2. Name it `app-haven-ribbon-{name}`
+3. Don't initialize with README
+4. Add the remote and push:
+   ```bash
+   git remote add origin https://github.com/HavenEngineering/app-haven-ribbon-{name}.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+### 3. Configure Branch Protection
+
+Set up branch protection for `main`:
+
+1. Go to repository Settings → Branches
+2. Add branch protection rule for `main`:
+   - Require pull request reviews before merging
+   - Require status checks to pass: `docker-build`
+   - Require branches to be up to date before merging
+
+### 4. Comprehensive Functional Testing
 
 Create a testing checklist based on source module features:
 
@@ -105,7 +212,7 @@ Create a testing checklist based on source module features:
 
 Work through this checklist systematically.
 
-### 2. Compare with Source Module
+### 5. Compare with Source Module
 
 **Side-by-side comparison:**
 
@@ -140,7 +247,7 @@ Create `MIGRATION_DIFFERENCES.md`:
 - Performance optimizations
 ```
 
-### 3. Performance Testing
+### 6. Performance Testing
 
 **Check bundle size:**
 ```bash
@@ -170,7 +277,7 @@ npx lighthouse http://localhost:3000 --view
 - Best Practices: > 90
 - SEO: > 80
 
-### 4. Security Review
+### 7. Security Review
 
 **Check for common issues:**
 - [ ] No secrets in code
@@ -190,7 +297,7 @@ npm audit
 npm audit fix
 ```
 
-### 5. Documentation Review
+### 8. Documentation Review
 
 **Ensure documentation is complete:**
 
@@ -340,7 +447,7 @@ For issues or questions:
 Proprietary - Haven Engineering
 ```
 
-### 6. Clean Up Code
+### 9. Clean Up Code
 
 **Remove development artifacts:**
 - [ ] Remove test components (like NavTest)
@@ -360,7 +467,7 @@ npm run lint -- --fix
 npx prettier --write src/
 ```
 
-### 7. Update Dependencies
+### 10. Update Dependencies
 
 **Check for updates:**
 ```bash
@@ -379,7 +486,7 @@ npm run dev
 - No new warnings
 - No breaking changes
 
-### 8. Create Migration Summary
+### 11. Create Migration Summary
 
 Create `MIGRATION_SUMMARY.md`:
 ```markdown
@@ -440,7 +547,7 @@ If issues occur, can rollback to original module at any time.
 4. Plan future enhancements
 ```
 
-### 9. Final Code Review
+### 12. Final Code Review
 
 **Self-review checklist:**
 - [ ] All TODO comments addressed or removed
@@ -458,7 +565,7 @@ If issues occur, can rollback to original module at any time.
 - Address feedback
 - Get approval from at least 2 reviewers
 
-### 10. Production Deployment Preparation
+### 13. Production Deployment Preparation
 
 **Pre-production checklist:**
 - [ ] All tests passing
@@ -480,7 +587,7 @@ If issues occur, can rollback to original module at any time.
 7. Verify in production
 8. Monitor for issues
 
-### 11. Post-Deployment Monitoring
+### 14. Post-Deployment Monitoring
 
 **Monitor for first 24 hours:**
 - Application logs (CloudWatch)
@@ -518,25 +625,9 @@ If issues occur:
    - Post-mortem after resolution
 ```
 
-### 12. Final Commit
+### 15. Migration Complete
 
-```bash
-git add .
-git commit -m "chore: finalize migration
-
-- Complete all testing
-- Update documentation
-- Clean up code
-- Prepare for production
-
-Migration of app-haven-experience-admin-{name} to app-haven-ribbon-{name} complete.
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>"
-
-git push
-```
+The migration is now complete! All code is committed, tested, and ready for deployment.
 
 ## Verification Checklist
 

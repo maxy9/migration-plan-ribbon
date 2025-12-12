@@ -339,25 +339,9 @@ When embedded, all routes are prefixed with `/embedded/comms/`:
 - `/embedded/comms/marketing`
 ```
 
-### 14. Commit Routing Migration
+### 14. Routing Migration Complete
 
-```bash
-git add .
-git commit -m "feat: migrate routing to Next.js App Router
-
-- Convert React Router v5 routes to App Router file structure
-- Create page components for all main routes
-- Implement layouts for shared UI structure
-- Add dynamic route segments for parameters
-- Update navigation components to use Next.js APIs
-- Document route mapping
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>"
-
-git push
-```
+All routes have been migrated to Next.js App Router. Continue to Phase 6 to migrate components.
 
 ## Verification Checklist
 
